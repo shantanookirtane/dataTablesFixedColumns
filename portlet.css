@@ -1,0 +1,122 @@
+ /* .stacked {
+	position: relative;
+}
+
+.stacked:after,.stacked:before {
+	content: '';
+	position: absolute;
+	display: block;
+	height: 1px;
+	bottom: -2px;
+	left: 3px;
+	right: 3px;
+	background-color: #ffffff;
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+	border: 1px solid #727272;
+	border-top: 0;
+}
+
+.stacked:before {
+	bottom: -4px;
+	left: 6px;
+	right: 6px;
+}
+
+
+.box h4.box-header {
+	border: 1px solid #727272;
+	background: #2191c0 url('images/header.png') 50% 50% repeat-x;
+	color: #eaf5f7;
+	font-weight: bold;
+} */
+
+.box h4.box-header {
+	border: 1px solid #727272;
+	/* background: #2191c0 url('images/header.png') 50% 50% repeat-x; */
+	color: #e36b23;
+	font-weight: bold;
+}
+
+
+ .well {
+	border-color: #707070;
+}
+.content-container {
+	height: inherit;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/* .portlet-actions button {
+	margin-top: 5px;
+}
+
+.carousel-control {
+	z-index: 1000;
+	width: 20px;
+	height: 20px;
+	font-size: 24px;
+	line-height: 20px;
+	top: 60%;
+}
+
+.carousel-indicators li {
+	background: #ccc;
+}
+
+.carousel-indicators li.active {
+	background: #333;
+}
+
+.settings-content {
+	background-color: #fff5ee;
+}
+
+.settings-content,.content-container {
+	padding: 15px;
+	position: relative;
+	border-left: 1px solid #727272;
+	border-right: 1px solid #727272;
+	border-bottom: 1px solid #727272;
+	This can be moved out to the classes which are resp for rounding
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-radius: 0 0 5px 5px;
+}
+ */
+.hide{
+	display:none;
+}
+
+.page-content {
+	margin: 0;
+	clear:both;
+	padding: 8px 20px 24px;
+}
+
+.main-content {
+	min-height: 100%;
+}
+
+.page-footer span>a>i {
+	text-decoration: none;
+}
+
+.page-footer span>a>i:hover {
+	color: #0088cc;
+}
+
+.page-footer span>a>i {
+	color: #0088cc;
+}
