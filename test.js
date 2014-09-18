@@ -79,20 +79,19 @@ _.each(_.keys(resultMap), function (dc, i, list) {
 				/*		contentDiv.find('table.dcInfoTable').append("<thead><tr><th rowspan='2'>ServerName</th>" +
 								"<th colspan='2'>Details</th></tr><tr><th>Server Response</th><th>Status</th></tr></thead>"); */
 						
-						var dcInfoDataTable = contentDiv.find('table.dcInfoTable').dataTable( {
-							"aaData": resultMap[dc],
-							"iDisplayLength": 10,
-				            "bLengthChange": false,
-				            "bAutoWidth": true,
-				            "bProcessing": false, 
-				            "sScrollX": "100%",
-				            "bScrollCollapse": true,
-				            "bDeferRender": true,
-				            "sScrollXInner":"100%",
-							"aoColumnDefs": aoColumnDefs,
-							"fnCreatedRow": function( nRow, aData, iDataIndex ) {
+						var dcInfoDataTable = contentDiv.find('table.dcInfoTable').DataTable( {
+							"data": resultMap[dc],
+							"pageLength": 10,
+				            "lengthChange": false,
+				            "autoWidth": true, 
+				            "scrollX": "100%",
+				            "scrollCollapse": true,
+				            /*"deferRender": true,*/
+				            /*"scrollXInner":"100%",*/
+							"columnDefs": aoColumnDefs,
+							"createdRow": function( nRow, aData, iDataIndex ) {
 
-								setTimeout(function () {
+							/*	setTimeout(function () { */
 									if (aData["comments"] && aData["comments"].indexOf("Error") != -1) {
 										// Do not do anything 
 										$('td:eq(0)', nRow).html(aData["serverName"]+"" +
@@ -111,8 +110,8 @@ _.each(_.keys(resultMap), function (dc, i, list) {
 												//		  console.log('server_mountedOn[aData["serverName"]+"~"+arr[0]][arr[1]] :: ', arr[1]);
 												//		  
 												// possible that not all servers has same mount 
-												if (server_mountedOn[aData["serverName"]+"~"+arr[0]]) {
-													$('td:eq('+cnt+')', nRow).html(server_mountedOn[aData["serverName"]+"~"+arr[0]][arr[1]]);  
+												if (server_mountedOn[aData["serverName"]+"~"+$.trim(arr[0])]) {
+													$('td:eq('+cnt+')', nRow).html(server_mountedOn[aData["serverName"]+"~"+$.trim(arr[0])][arr[1]]);  
 												} else {
 													$('td:eq('+cnt+')', nRow).html(" - ");
 												}
@@ -120,7 +119,7 @@ _.each(_.keys(resultMap), function (dc, i, list) {
 											}
 										});
 									}
-								},1);
+							/*	},1); */
 
 								/* $(nRow).addClass("fsInfo");
 							            	  // Highlight every cell with different color
@@ -134,15 +133,14 @@ _.each(_.keys(resultMap), function (dc, i, list) {
 								//DomReady.ready(self.processOutputForService($('td:eq(1)', nRow), aData, taskName));
 							}
 						});
-						console.log("I am calling fixedcolumns");
-						dcInfoDataTable.fnInitComplete = function () {
-							console.log("calling fixed column plugin");
-							new FixedColumns( this, {
-							      "iLeftColumns": 1,
+						// end datatable 
+						
+						console.log("calling fixed column plugin");
+						new $.fn.dataTable.FixedColumns( dcInfoDataTable, {
+							      "leftColumns": 1,
 							      "heightMatch": "none",
-							      "iRightColumns": 0
 							    } );
-						};
+						
 						
 						dcMenuContentDiv.append(contentDiv);
 					});
